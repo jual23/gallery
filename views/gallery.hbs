@@ -1,0 +1,22 @@
+{{#if images}}
+<h2>Welcome to your gallery.</h2>
+<div class="container">
+    <div class="row">
+     {{#each images}}
+      <div class="thumbnail col-sm-12 col-md-4 col-lg-3">
+        <a href="#" data-toggle="modal" data-target="#myModal{{@index}}" ><img src="/uploads/{{this.filename}}"></a>
+      </div>
+      <div id="myModal{{@index}}" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <img src="/uploads/{{this.filename}}">
+          </div>
+        </div>
+      </div>
+    {{/each}} 
+    </div>
+</div>
+{{/if}}
+{{#unless images}}
+<h2>There is no content to show yet! Try uploading an image first.</h2>
+{{/unless}}
